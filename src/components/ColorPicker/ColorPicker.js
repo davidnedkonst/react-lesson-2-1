@@ -40,7 +40,7 @@ export default class ColorPicker extends React.Component {
                 </p>
                 <div>{
                     options.map(
-                        ({ label, color }, index) => (
+                        ({ label, color }, index) =>
                             <button
                                 key={label}
                                 type="button"
@@ -48,7 +48,6 @@ export default class ColorPicker extends React.Component {
                                 style={{ backgroundColor: color, }}
                                 onClick={() => this.SetActiveIdx(index)}
                             ></button>
-                        )
                     )
                 }</div>
             </div>
