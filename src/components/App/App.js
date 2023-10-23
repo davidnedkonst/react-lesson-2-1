@@ -3,19 +3,9 @@ import Counter from "../Counter";
 import Dropdown from "../Dropdown";
 import ColorPicker from "../ColorPicker";
 import { colorPickerOptions } from "../../constants/colorPickerOptions";
-import TodoList from "../TodoList";
-import initialTodos from '../../constants/todos.json';
+import Todo from "../Todo";
 
 export default class App extends React.Component {
-    state = {
-        todos: initialTodos,
-    };
-
-    deleteTodo = todoId => {
-        this.setState(prevState => ({
-            todos: prevState.todos.filter(todo => todo.id !== todoId),
-        }));
-    };
 
     render() {
         return (
@@ -32,9 +22,9 @@ export default class App extends React.Component {
 
                 <ColorPicker options={colorPickerOptions} />
 
-                <h2>4. TodoList</h2>
+                <h2>4. Todo</h2>
 
-                <TodoList todos={this.state.todos} onDeleteTodo={this.deleteTodo} />
+                <Todo />
             </div>
         );
     };
