@@ -12,12 +12,12 @@ export default class Counter extends React.Component {
         counterValue: this.props.initialValue,
     };
 
-    handleIncrement = () => {
+    onIncrement = () => {
         console.log("click on Увеличить");
         this.setState(prevState => ({ counterValue: prevState.counterValue + 1 }));
     };
 
-    handleDecrement = () => {
+    onDecrement = () => {
         console.log("click on Уменьшить");
         this.setState(prevState => ({ counterValue: prevState.counterValue - 1 }));
     };
@@ -35,8 +35,8 @@ export default class Counter extends React.Component {
                 />
 
                 <Controls
-                    onIncrement={this.handleIncrement}
-                    onDecrement={this.handleDecrement}
+                    onIncrement={this.onIncrement}
+                    onDecrement={this.onDecrement}
                 />
             </div>
         );

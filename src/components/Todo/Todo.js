@@ -1,11 +1,11 @@
 import React from 'react';
+import Form from './Form';
 import css from './Todo.module.css';
 import initialTodos from '../../constants/todos.json';
 
 export default class Todo extends React.Component {
     state = {
         todos: initialTodos,
-        inputValue: '',
     };
 
     onDeleteTodo = todoId => {
@@ -14,37 +14,31 @@ export default class Todo extends React.Component {
         }));
     };
 
-    onInputChange = event => {
-        console.log(event.target);
-
-        this.setState({
-            inputValue: event.target.value
-        })
-    };
+    onSubmitForm = (data) => {
+        console.log('Todo write: form submit');
+        console.log(data);
+    }
 
     render() {
         const { todos } = this.state;
 
         return (
-            <div className={css.TodoList}>
-                <form className={css.TodoList__item}>
-                    <label htmlFor='nameTodo'>Name todo</label>
-                    <input id='nameTodo' type='text' onChange={this.onInputChange} />
-                    <button type='submit'>Add todo</button>
-                </form>
+            <div className={css.Todo}>
+                <Form onSubmit={this.onSubmitForm} />
 
-                <ul>{
-                    todos.map(
-                        ({ id, text }) =>
-                            <li key={id} className={css.TodoList__item}>
-                                <p className={css.TodoList__text}>{text}</p>
+                <div className={css.Todo__list}>
+                    <ul>{
+                        todos.map(({ id, text }) =>
+                            <li key={id} className={css.Todo__item}>
+                                <p className={css.Todo__text}>{text}</p>
                                 <button
-                                    className={css.TodoList__button}
+                                    className={css.Todo__button}
                                     onClick={() => this.onDeleteTodo(id)}
                                 >Delete</button>
                             </li>
-                    )
-                }</ul>
+                        )
+                    }</ul>
+                </div>
             </div>
         );
     }
