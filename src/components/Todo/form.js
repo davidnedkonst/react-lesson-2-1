@@ -1,7 +1,7 @@
 import React from "react";
 import css from './Todo.module.css';
 
-export default class Form extends React.Component{
+export default class Form extends React.Component {
     state = {
         name: '',
         text: '',
@@ -19,7 +19,17 @@ export default class Form extends React.Component{
         console.log('Form write: form submit');
         console.log(this.state);
         this.props.onSubmit(this.state);
-    }
+        this.reset();
+    };
+
+    reset = () => {
+        this.setState(
+            {
+                name: '',
+                text: '',
+            }
+        );
+    };
 
     render() {
         return (
@@ -66,5 +76,5 @@ export default class Form extends React.Component{
                 </form>
             </div>
         );
-    }
-}
+    };
+};
