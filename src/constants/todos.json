@@ -1,17 +1,22 @@
 [
     {
         "id": "id-1",
-        "text": "Выучить основы React",
+        "text": "Выучить основы html",
         "complete": true
     },
     {
         "id": "id-2",
-        "text": "Выучить React Router",
-        "complete": false
+        "text": "Выучить js",
+        "complete": true
     },
     {
         "id": "id-3",
-        "text": "Выучить React Reduxe",
+        "text": "Выучить React React",
+        "complete": false
+    },
+    {
+        "id": "id-4",
+        "text": "Выучить Angular",
         "complete": false
     }
 ]

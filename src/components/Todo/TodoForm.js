@@ -3,9 +3,9 @@ import css from './TodoForm.module.css';
 import { nanoid } from "nanoid";
 
 export default class TodoForm extends React.Component {
-    state = { name: '', text: '', };
+    state = { name: '', text: '', complete: false, };
 
-    id = { idInputName: nanoid(), idInputText: nanoid() };
+    id = { idInputName: nanoid(), idInputText: nanoid(), idInputComplete: nanoid() };
 
     onChange = event => {
         const { name, value } = event.target;
@@ -28,8 +28,8 @@ export default class TodoForm extends React.Component {
     };
 
     render() {
-        const { name, text } = this.state;
-        const { idInputName, idInputText } = this.id;
+        const { name, text, complete } = this.state;
+        const { idInputName, idInputText, idInputComplete } = this.id;
         return (
             <div className={css.TodoForm}>
                 <h3>Input form</h3>
@@ -63,6 +63,54 @@ export default class TodoForm extends React.Component {
                     </div>
 
                     <div className={css.TodoForm__input}>
+                        <label htmlFor={idInputComplete}>
+                            Complete todo:
+                        </label>
+
+                        <input
+                            id={idInputComplete}
+                            name='complete'
+                            type='checkbox'
+                            value={complete}
+                            onChange={this.onChange}
+                        />
+                    </div>
+
+                    {/* <div className={css.TodoForm__input}>
+                        <p>For level:</p>
+                        <label>
+                            <input
+                                name='experience'
+                                type="radio"
+                                value='junior'
+                                checked={experience === 'junior'}
+                                onChange={this.onChange}
+                            />
+                            junior
+                        </label>
+                        <label>
+                            <input
+                                name='experience'
+                                type="radio"
+                                value='middle'
+                                checked={experience === 'middle'}
+                                onChange={this.onChange}
+                            />
+                            middle
+                        </label>
+                        <label>
+                            <input
+                                name='experience'
+                                type="radio"
+                                value='senior'
+                                checked={experience === 'senior'}
+                                onChange={this.onChange}
+                            />
+                            senior
+                        </label>
+                    </div> */}
+
+                    {/* <div className={css.TodoForm__input}>
                         <label htmlFor='complete'>
                             Complete todo:
                         </label>
@@ -71,8 +119,12 @@ export default class TodoForm extends React.Component {
                             <option value={true}>Complete</option>
                             <option value={false}>Not complete</option>
                         </select>
-                    </div>
-                    <button type='submit' className={css.TodoForm__button}>Add todo</button>
+                    </div> */}
+
+                    <button
+                        type='submit'
+                        className={css.TodoForm__button}
+                    >Add todo</button>
                 </form>
             </div>
         );

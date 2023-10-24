@@ -1,12 +1,11 @@
 import React from 'react';
-import TodoForm from './TodoForm';
+import TodoEditor from './TodoEditor';
+import TodoList from './TodoList';
 import css from './Todo.module.css';
 import initialTodos from '../../constants/todos.json';
 
 export default class Todo extends React.Component {
-    state = {
-        todos: initialTodos,
-    };
+    state = { todos: initialTodos, };
 
     onDeleteTodo = todoId => {
         this.setState(prevState => ({
@@ -20,26 +19,14 @@ export default class Todo extends React.Component {
     }
 
     render() {
-        const { todos } = this.state;
-
         return (
             <div className={css.Todo}>
-                <TodoForm onSubmit={this.onSubmitForm} />
+                <TodoEditor/>
 
-                <div className={css.Todo__list}>
-                    <h3>Todos</h3>
-                    <ul>{
-                        todos.map(({ id, text }) =>
-                            <li key={id} className={css.Todo__item}>
-                                <p className={css.Todo__text}>{text}</p>
-                                <button
-                                    className={css.Todo__button}
-                                    onClick={() => this.onDeleteTodo(id)}
-                                >Delete</button>
-                            </li>
-                        )
-                    }</ul>
-                </div>
+                <TodoList
+                    todos={this.state.todos} 
+                    deleteTodo ={this.onDeleteTodo}
+                />
             </div>
         );
     }

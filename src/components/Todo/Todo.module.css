@@ -4,23 +4,3 @@
     border: 1px solid black;
 }
 
-.Todo__list {
-    padding: 20px;
-    border: 1px solid black;
-}
-
-.Todo__item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-}
-
-.Todo__text {
-    margin-top: 0;
-    margin-bottom: 0;
-}
-
-.Todo__button {
-    cursor: pointer;
-}
