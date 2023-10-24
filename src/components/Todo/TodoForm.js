@@ -1,13 +1,16 @@
 import React from "react";
 import css from './TodoForm.module.css';
+import { nanoid } from "nanoid";
 
 export default class TodoForm extends React.Component {
     state = { name: '', text: '', };
 
+    id = { idInputName: nanoid(), idInputText: nanoid() };
+
     onChange = event => {
-        const { id, value } = event.target;
-        console.log('Change on ' + id + ': ' + value);
-        this.setState({ [id]: value, }
+        const { name, value } = event.target;
+        console.log('Change on ' + name + ': ' + value);
+        this.setState({ [name]: value, }
         );
     };
 
@@ -25,18 +28,20 @@ export default class TodoForm extends React.Component {
     };
 
     render() {
-        const { name, text} = this.state;
+        const { name, text } = this.state;
+        const { idInputName, idInputText } = this.id;
         return (
             <div className={css.TodoForm}>
                 <h3>Input form</h3>
                 <form onSubmit={this.onSubmit}>
                     <div className={css.TodoForm__input}>
-                        <label htmlFor='name'>
+                        <label htmlFor={idInputName}>
                             Name todo:
                         </label>
 
                         <input
-                            id='name'
+                            id={idInputName}
+                            name ='name'
                             type='text'
                             value={name}
                             onChange={this.onChange}
@@ -44,12 +49,13 @@ export default class TodoForm extends React.Component {
                     </div>
 
                     <div className={css.TodoForm__input}>
-                        <label htmlFor='text'>
+                        <label htmlFor={idInputText}>
                             Text todo:
                         </label>
 
                         <input
-                            id='text'
+                            id={idInputText}
+                            name='text'
                             type='text'
                             value={text}
                             onChange={this.onChange}
