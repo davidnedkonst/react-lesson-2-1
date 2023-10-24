@@ -1,0 +1,14 @@
+.TodoForm {
+    padding: 20px;
+    border: 1px solid black;
+}
+
+.TodoForm__input {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.TodoForm__button {
+    cursor: pointer;
+}

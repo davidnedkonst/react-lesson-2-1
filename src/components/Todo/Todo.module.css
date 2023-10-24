@@ -4,17 +4,6 @@
     border: 1px solid black;
 }
 
-.Todo__form {
-    padding: 20px;
-    border: 1px solid black;
-}
-
-.Todo__input {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
 .Todo__list {
     padding: 20px;
     border: 1px solid black;

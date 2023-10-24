@@ -1,5 +1,5 @@
 import React from 'react';
-import Form from './Form';
+import TodoForm from './TodoForm';
 import css from './Todo.module.css';
 import initialTodos from '../../constants/todos.json';
 
@@ -24,9 +24,10 @@ export default class Todo extends React.Component {
 
         return (
             <div className={css.Todo}>
-                <Form onSubmit={this.onSubmitForm} />
+                <TodoForm onSubmit={this.onSubmitForm} />
 
                 <div className={css.Todo__list}>
+                    <h3>Todos</h3>
                     <ul>{
                         todos.map(({ id, text }) =>
                             <li key={id} className={css.Todo__item}>
