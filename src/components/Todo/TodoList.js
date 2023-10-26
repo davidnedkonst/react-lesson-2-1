@@ -14,6 +14,7 @@ export default class TodoList extends React.Component{
                             <input
                                 type="checkbox" 
                                 checked={complete}
+                                readOnly
                             />
                             <p className={css.TodoList__text}>{text}</p>
                             <button

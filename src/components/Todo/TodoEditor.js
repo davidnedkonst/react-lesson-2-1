@@ -1,4 +1,6 @@
 import React from "react";
+import css from './TodoEditor.module.css';
+
 
 export default class TodoEditor extends React.Component {
     state = { message: '', };
@@ -6,29 +8,38 @@ export default class TodoEditor extends React.Component {
     onChange = event => {
         const { name, value } = event.target;
         console.log('Change on ' + name + ': ' + value);
-        this.setState({ [name]: value, }
-        );
+        this.setState({ [name]: value, });
     };
 
-    onSubmit = event => {
+    onSave = event => {
         event.preventDefault();
-        console.log('TodoEditor write: form submit');
+        console.log('TodoEditor write: text save');
         console.log(this.state);
-        this.props.onSubmit(this.state);
+        this.props.onSubmit(this.state.message);
         this.reset();
-    };
+    }
 
     reset = () => {
-        console.log('reset form run');
+        console.log('Reset run');
         this.setState({ message: '', });
     };
 
     render() {
         return (
-            <div>
-                <form>
-                    <input type="text" />
-                    <button type="submit">Add</button>
+            <div className={css.TodoEditor}>
+                <form onSubmit={this.onSave}>
+                    <textarea
+                        type="text"
+                        name="message"
+                        className={css.TodoEditor__textarea}
+                        value={this.state.message}
+                        onChange={this.onChange}
+                    />
+
+                    <button
+                        type="submit"
+                        className={css.TodoEditor__button}
+                    >Save</button>
                 </form>
             </div>
         );

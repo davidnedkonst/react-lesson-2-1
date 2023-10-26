@@ -1,6 +1,6 @@
 .TodoList {
     padding: 20px;
-    border: 1px solid black;
+
 }
 
 .TodoList__item {
@@ -8,6 +8,10 @@
     justify-content: space-between;
     align-items: center;
 
+    padding: 16px;
+    border: 1px solid black;
+    border-radius: 4px;
+    margin-bottom: 12px;
 }
 
 .TodoList__text {
@@ -16,5 +20,10 @@
 }
 
 .TodoList__button {
+    padding: 4px 12px;
+    border: 1px solid gray;
+    border-radius: 4px;
+    color: white;
+    background-color: blue;
     cursor: pointer;
 }
