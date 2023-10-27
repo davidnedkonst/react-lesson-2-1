@@ -10,7 +10,7 @@ export default class TodoForm extends React.Component {
     onChange = event => {
         const { name, value } = event.target;
         console.log('Change on ' + name + ': ' + value);
-        this.setState({ [name]: value, }
+        this.setState({ [name]: value === 'on' ? true : false, }
         );
     };
 
@@ -24,7 +24,7 @@ export default class TodoForm extends React.Component {
 
     reset = () => {
         console.log('reset form run');
-        this.setState({ name: '', text: '', });
+        this.setState({ name: '', text: '', complete: 'off', });
     };
 
     render() {
@@ -41,7 +41,7 @@ export default class TodoForm extends React.Component {
 
                         <input
                             id={idInputName}
-                            name ='name'
+                            name='name'
                             type='text'
                             value={name}
                             onChange={this.onChange}
@@ -71,7 +71,6 @@ export default class TodoForm extends React.Component {
                             id={idInputComplete}
                             name='complete'
                             type='checkbox'
-                            value={complete}
                             onChange={this.onChange}
                         />
                     </div>

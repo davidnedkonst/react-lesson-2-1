@@ -3,7 +3,6 @@ import TodoEditor from './TodoEditor';
 import TodoFilter from './TodoFilter';
 import TodoList from './TodoList';
 import css from './Todo.module.css';
-import { nanoid } from "nanoid";
 import initialTodos from '../../constants/todos.json';
 
 export default class Todo extends React.Component {
@@ -21,19 +20,11 @@ export default class Todo extends React.Component {
         );
     };
 
-    addTodo = (text) => {
-        const newTodo = {
-            id: nanoid(),
-            text,
-            complete: false,
-        };
+    checkTodo = (check) => {
 
-        this.setState(
-            ({ todos }) => ({ todos: [newTodo, ...todos] })
-        );
+    }
 
-        console.log('Todo write: add todo.');
-    };
+    
 
     filterTodo = (data) => {
 
@@ -85,7 +76,6 @@ export default class Todo extends React.Component {
 
                 <TodoList
                     todos={this.state.filter.length ? this.state.filter : this.state.todos}
-                    deleteTodo={this.deleteTodo}
                 />
             </div>
         );
